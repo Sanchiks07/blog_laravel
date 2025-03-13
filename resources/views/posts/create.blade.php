@@ -18,7 +18,8 @@
 
         @error("content")
             <p>{{ $message }}</p>
-        @enderror
+        @enderror<br>
+
         <label>
             Kategorija:
             <select name="category_id">
@@ -29,7 +30,11 @@
                     </option>
                 @endforeach
             </select>
-        </label>
+        </label><br>
+
+        @error("category_id")
+            <p>{{ $message }}</p>
+        @enderror
 
         <br><button>Saglabāt</button>
     </form>

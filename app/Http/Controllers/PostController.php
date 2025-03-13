@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -15,23 +16,28 @@ class PostController extends Controller
         return view("posts.show", compact("post"));
     }
 
-    public function create(Post $post) {
-        return view("posts.create", compact("post"));
+    public function create() {
+        $categories = Category::all();
+
+        return view("posts.create", compact("categories"));
     }
 
     public function store(Request $request) {
         $validated = $request->validate([
-            "content" => ["required", "max:50"]
-            
+            "content" => ["required", "max:50"],
+            "category_id" => ["required", "max:10"]
         ]);
         Post::create([
-            "content" => $validated["content"]
+            "content" => $validated["content"],
+            "category_id" => $validated["category_id"]
         ]);
         return redirect("/posts");
     }
 
     public function edit(Post $post) {
-        return view("posts.edit", compact("post"));
+        $categories = Category::all();
+
+        return view("posts.edit", compact("post", "categories"));
     }
 
     public function update(Request $request, Post $post) {
@@ -41,6 +47,7 @@ class PostController extends Controller
         ]);
 
         $post->content = $validated["content"];
+        $post->category_id = $validated["category_id"];
         $post->save();
 
         return redirect("/posts");

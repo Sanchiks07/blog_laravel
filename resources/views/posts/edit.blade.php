@@ -17,15 +17,20 @@
         @enderror<br><br>
 
         <label>
-            Category:
+            Kategorija:
             <select name="category_id">
-                <option value="0">No category</option>
+                <option value="0">Bez kategorijas</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">
+                    {{ $category->category_name }} 
+                    </option>
+                @endforeach
             </select>
-        </label>
-        
+        </label><br>
+
         @error("category_id")
-        <p>{{ $message }}</p>
-        @enderror<br>
+            <p>{{ $message }}</p>
+        @enderror
 
         <br><button>Saglabāt</button>
     </form>
