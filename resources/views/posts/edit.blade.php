@@ -8,7 +8,7 @@
         @method('PUT')
         
         <label>
-            Content:<br>
+            Ieraksts:<br>
             <input name="content" value="{{ $post->content }}" />
         </label>
 

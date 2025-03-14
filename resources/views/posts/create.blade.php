@@ -13,7 +13,8 @@
         @csrf
 
         <label>
-            Content:<br><textarea name="content" rows="5" cols="30"></textarea>
+            Ieraksts:<br>
+            <textarea name="content" rows="5" cols="30"></textarea>
         </label><br>
 
         @error("content")
