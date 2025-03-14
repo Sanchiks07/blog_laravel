@@ -3,11 +3,12 @@
         Izveidot kategoriju
     </x-slot:title>
     <h1>Izveidot kategoriju</h1>
-    <form method="POST" action="/posts">
+    <form method="POST" action="/categories">
         @csrf
 
         <label>
-            Category:<br><textarea name="category_name" rows="5" cols="30"></textarea>
+            Kategorija:<br>
+            <input name="category_name" />
         </label><br>
 
         @error("category_name")

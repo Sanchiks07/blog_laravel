@@ -3,7 +3,7 @@
         {{ $post->content }}
     </x-slot:title>
     <h1>{{ $post->content }}</h1>
-    <p></p>
+    <p>{{ $post->category_id }}</p>
 
     <a class="edit" href="/posts/{{ $post->id }}/edit">Rediģēt</a><br>
 
