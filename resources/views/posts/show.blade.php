@@ -11,5 +11,32 @@
         @csrf
         @method("delete")
         <button>Dzēst</button>
+    </form><br>
+
+    <p class="komentari">Komentāri</p>
+
+
+    <form method="POST" action="">
+        <label>
+            Autors:
+            <input name="author" />
+        </label>
+
+        @error("author")
+            <p>{{ $message }}</p>
+        @enderror<br>
+
+        <br><br>
+        <label>
+            Komentārs:
+            <input name="comment" />
+        </label>
+
+        @error("comment")
+            <p>{{ $message }}</p>
+        @enderror<br>
+
+        <br><br>
+        <button>Komentēt</button>
     </form>
 </x-layout>

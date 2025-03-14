@@ -1,0 +1,33 @@
+body {
+    background-color: #e89ff5;
+}
+
+.komentari {
+    font-weight: bold;
+}
+
+/* navbar */
+nav {
+    text-align: center;
+}
+
+nav a {
+    color: #6f1f8f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #9627c2;
+    text-decoration: underline;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+}
