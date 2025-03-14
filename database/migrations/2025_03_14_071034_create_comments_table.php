@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->string("author", length: 255);
             $table->string("comment", length: 500);
-            $table->dateTime('created_at', precision: 0);
             $table->timestamps();
         });
     }
