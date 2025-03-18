@@ -15,8 +15,13 @@
 
     <p class="komentari">Komentāri</p>
 
+    <ul>
+    @foreach ($posts as $post)
+        <li><a href="/posts/{{ $post->id }}">{{ $post->comment->comment }}</a></li>
+    @endforeach
+    </ul>
 
-    <form method="POST" action="">
+    <form method="POST" action="/posts/{{ $post->id }}">
         <label>
             Autors:
             <input name="author" />
@@ -26,8 +31,7 @@
             <p>{{ $message }}</p>
         @enderror<br>
 
-        <br><br>
-        <label>
+        <br><label>
             Komentārs:
             <input name="comment" />
         </label>
@@ -37,6 +41,6 @@
         @enderror<br>
 
         <br><br>
-        <button>Komentēt</button>
+        <button type="submit">Komentēt</button>
     </form>
 </x-layout>
