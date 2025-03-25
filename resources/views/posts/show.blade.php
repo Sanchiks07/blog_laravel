@@ -40,7 +40,13 @@
         <form method="POST" action="/comments/{{ $comment->id }}">
             @csrf
             @method("delete")
-            <button>Dzēst</button>
+
+            <h2>{{ $comment->comment }}</h2>
+            <p>{{ $comment->created_at }}</p>
+            <p>{{ $comment->author }}</p>
+
+            <a href="/comments/{{ $comment->id }}/edit">Edit</a>
+            <button>Delete</button>
         </form>
     @endforeach
     

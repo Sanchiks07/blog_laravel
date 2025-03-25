@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string("author", length: 255);
             $table->string("comment", length: 500);
+            $table->foreignId("post_id")->constrained();
             $table->timestamps();
         });
     }

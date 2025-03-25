@@ -8,17 +8,19 @@ use App\Models\Comment;
 class CommentsController extends Controller
 {
     public function create(Comment $comment) {
-        return view("posts.show", compact("comment"));
+        return view("comments.show", compact("comment"));
     }
 
     public function store(Request $request) {
         $validated = $request->validate([
             "author" => ["required", "max:50"],
-            "comment" => ["required", "max:255"]
+            "comment" => ["required", "max:255"],
+            "post_id" => ["required"]
         ]);
-        Post::create([
+        Comment::create([
             "author" => $validated["author"],
-            "comment" => $validated["comment"]
+            "comment" => $validated["comment"],
+            "post_id" => $validated["post_id"]
         ]);
         return redirect("/posts");
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -13,6 +14,8 @@ class PostController extends Controller
     }
 
     public function show(Post $post) {
+        $post->load("comments");
+
         return view("posts.show", compact("post"));
     }
 
