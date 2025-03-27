@@ -16,6 +16,10 @@
     <p class="komentari">Komentāri</p>
 
     <form method="POST" action="/comments">
+        @csrf
+
+        <input name="post_id" value="{{ $post->id }}" type="hidden" />
+
         <label>
             Autors:
             <input name="author" />
@@ -45,8 +49,8 @@
             <p>{{ $comment->created_at }}</p>
             <p>{{ $comment->author }}</p>
 
-            <a href="/comments/{{ $comment->id }}/edit">Edit</a>
-            <button>Delete</button>
+            <a href="/comments/{{ $comment->id }}/edit">Rediģēt</a>
+            <button>Dzēst</button>
         </form>
     @endforeach
     

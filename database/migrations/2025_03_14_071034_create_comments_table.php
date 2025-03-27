@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string("author", length: 255);
+            $table->string("author", length: 50);
             $table->string("comment", length: 500);
-            $table->foreignId("post_id")->constrained();
+            $table->foreignId("post_id")->constrained()->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }

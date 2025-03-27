@@ -44,7 +44,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post) {
         $validated = $request->validate([
             "content" => ["required", "max:50"],
-            "category_id" => ["required", "max:10"]
+            "category_id" => ["required"]
         ]);
 
         $post->content = $validated["content"];
