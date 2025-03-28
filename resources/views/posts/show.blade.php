@@ -56,7 +56,7 @@
 
                         <p><strong>{{ $comment->comment }}</strong></p>
                         <p>{{ $comment->author }}</p>
-                        <p>{{ $comment->created_at }}</p>
+                        <p>{{ $comment->created_at->timezone('Europe/Riga')->format('Y-m-d H:i:s') }}</p>
 
                         <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
                         <button class="delete">Dzēst</button>
