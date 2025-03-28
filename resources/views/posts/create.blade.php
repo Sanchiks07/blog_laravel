@@ -16,7 +16,7 @@
 
             <label>
                 Ieraksts<br>
-                <textarea name="content" rows="5" cols="30"></textarea>
+                <textarea name="content" placeholder="Ieraksti savas domas..."></textarea>
             </label><br>
 
             @error("content")

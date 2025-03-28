@@ -19,30 +19,29 @@
         <div class="comment-section">
             <!-- izveido komentāru -->
             <div class="create-comment">
-                <h2>Komentēt</h2>
                 <form method="POST" action="/comments" class="comment-form">
                     @csrf
 
                     <input name="post_id" value="{{ $post->id }}" type="hidden" />
 
-                    <label>
-                        Komentārs<br>
-                        <textarea name="comment"></textarea>
-                    </label>
+                    <div class="input-group">
+                        <label for="comment">Komentārs</label>
+                        <textarea name="comment" id="comment" placeholder="Ieraksti savu komentāru..."></textarea>
+                    </div>
                     @error("comment")
                         <p>{{ $message }}</p>
                     @enderror<br>
 
-                    <br><label>
-                        Autors<br>
-                        <input name="author" />
-                    </label>
+                    <div class="input-group">
+                        <label for="author">Autors</label>
+                        <input name="author" id="author" />
+                    </div>
                     @error("author")
                         <p>{{ $message }}</p>
                     @enderror<br>
 
                     <br>
-                    <button type="submit" class="save">Saglabāt</button>
+                    <button type="submit" class="save">Komentēt</button>
                 </form><br>
             </div>
 

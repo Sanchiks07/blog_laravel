@@ -8,9 +8,13 @@
     --edit-hover: #297505;
     --delete: #ad0202;
     --delete-hover: #8d0606;
+
+    --comment-border-color: #3a86c9;
+    --comment-color: #2472a9;
+    --comment-background: #389ae118;
 }
 
-p {
+p, label {
     font-size: 18px;
 }
 
@@ -160,4 +164,38 @@ nav li {
 
 .create-comment {
     flex-shrink: 0;
+}
+
+/* komentāru input */
+.input-group {
+    margin: auto;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--comment-border-color);
+    border-radius: 5px;
+    outline: none;
+    background: var(--comment-background);
+    box-sizing: border-box;
+}
+
+.input-group label {
+    color: var(--comment-color);
+    transition: 0.3s ease-in-out;
+    padding: 0 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    color: var(--comment-color);
+    padding: 2px 5px;
+    border-radius: 5px;
 }
