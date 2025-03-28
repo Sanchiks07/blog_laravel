@@ -4,7 +4,6 @@
     --link: #396370;
     --link-hover: #264554;
 
-    /* edit & delete */
     --edit: #2f9600;
     --edit-hover: #297505;
     --delete: #ad0202;
@@ -12,7 +11,7 @@
 }
 
 p {
-    font-size: 17px;
+    font-size: 18px;
 }
 
 ul {
@@ -43,6 +42,8 @@ body {
     flex-direction: column;
     flex: 1;
     text-align: center;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* izvadu linki */
@@ -134,4 +135,29 @@ nav li {
 .delete:hover {
     background-color: var(--delete-hover);
     cursor: pointer;
+}
+
+/* komentāri */
+.comment-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.create-comment, .comments-list {
+    width: 40%;
+}
+
+.comments-list {
+    max-height: 305px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.create-comment {
+    flex-shrink: 0;
 }
