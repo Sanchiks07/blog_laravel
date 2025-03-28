@@ -1,16 +1,87 @@
-/* navbar */
-nav {
+:root {
+    --background: #a5ceee;
+
+    --link: #396370;
+    --link-hover: #264554;
+
+    /* edit & delete */
+    --edit: #2f9600;
+    --edit-hover: #297505;
+    --delete: #ad0202;
+    --delete-hover: #8d0606;
+}
+
+p {
+    font-size: 17px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    width: 300px;
+    height: 90px;
+    resize: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
     text-align: center;
 }
 
-nav a {
+/* izvadu linki */
+.output {
+    font-size: 18px;
+}
+
+.output:link, .output:visited {
     text-decoration: none;
     font-weight: bold;
-    margin: 0 5px 0 5px;
+    margin: 0 15px;
+    color: var(--link);
+}
+
+.output:hover {
+    text-decoration: underline;
+    color: var(--link-hover);
+}
+
+/* navbar */
+nav {
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10px;
+}
+
+nav a:link, nav a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    color: var(--link);
 }
 
 nav a:hover {
     text-decoration: underline;
+    color: var(--link-hover);
 }
 
 nav ul {
@@ -23,9 +94,20 @@ nav li {
     display: inline;
 }
 
- /* edit poga */
+/* edit & delete */
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.edit, .delete {
+    display: inline-block;
+}
+
+/* edit poga */
 .edit:link, .edit:visited {
-    background-color: #2f9600;
+    background-color: var(--edit);
     color: white;
     padding: 5px;
     text-align: center;
@@ -33,14 +115,14 @@ nav li {
     display: inline-block;
     border-radius: 5px;
 }
-  
+
 .edit:hover, .edit:active {
-    background-color: #297505;
+    background-color: var(--edit-hover);
 }
 
 /* delete poga */
 .delete {
-    background-color: #ad0202;
+    background-color: var(--delete);
     color: white;
     padding: 7px;
     text-align: center;
@@ -48,8 +130,8 @@ nav li {
     border-radius: 5px;
     border: none;
 }
-  
+
 .delete:hover {
-    background-color: #8d0606;
-    cursor:pointer;
+    background-color: var(--delete-hover);
+    cursor: pointer;
 }

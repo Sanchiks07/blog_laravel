@@ -2,58 +2,67 @@
     <x-slot:title>
         {{ $post->content }}
     </x-slot:title>
-    <h1>{{ $post->content }}</h1>
-    <p>{{ $post->category->category_name ?? "Nav kategorijas" }}</p>
+    <div class="center">
+        <h1>{{ $post->content }}</h1>
+        <p>Kategorija: {{ $post->category->category_name ?? "Nav kategorijas" }}</p>
 
-    <a class="edit" href="/posts/{{ $post->id }}/edit">Rediģēt</a>
+        <div class="actions">
+            <a class="edit" href="/posts/{{ $post->id }}/edit">Rediģēt</a>
 
-    <form method="POST" action="/posts/{{ $post->id }}">
-        @csrf
-        @method("delete")
-        <button class="delete">Dzēst</button>
-    </form>
+            <form method="POST" action="/posts/{{ $post->id }}">
+                @csrf
+                @method("delete")
+                <button class="delete">Dzēst</button>
+            </form>
+        </div><br>
 
-    <!-- izveido komentāru -->
-    <h3>Komentēt</h3>
-    <form method="POST" action="/comments">
-        @csrf
+        <div class="comment-section">
+            <!-- izveido komentāru -->
+            <div class="create-comment">
+                <h2>Komentēt</h2>
+                <form method="POST" action="/comments" class="comment-form">
+                    @csrf
 
-        <input name="post_id" value="{{ $post->id }}" type="hidden" />
+                    <input name="post_id" value="{{ $post->id }}" type="hidden" />
 
-        <label>
-            Komentārs:
-            <input name="comment" />
-        </label>
-        @error("comment")
-            <p>{{ $message }}</p>
-        @enderror<br>
+                    <label>
+                        Komentārs<br>
+                        <textarea name="comment"></textarea>
+                    </label>
+                    @error("comment")
+                        <p>{{ $message }}</p>
+                    @enderror<br>
 
-        <br><label>
-            Autors:
-            <input name="author" />
-        </label>
-        @error("author")
-            <p>{{ $message }}</p>
-        @enderror<br>
+                    <br><label>
+                        Autors<br>
+                        <input name="author" />
+                    </label>
+                    @error("author")
+                        <p>{{ $message }}</p>
+                    @enderror<br>
 
-        <br>
-        <button type="submit" class="save">Saglabāt</button>
-    </form><br>
+                    <br>
+                    <button type="submit" class="save">Saglabāt</button>
+                </form><br>
+            </div>
 
-    <!-- izvada komentārus -->
-    <h3>Komentāri</h3>
-    @foreach ($post->comments as $comment)
-        <form method="POST" action="/comments/{{ $comment->id }}">
-            @csrf
-            @method("delete")
+            <div class="comments-list">
+                <!-- izvada komentārus -->
+                <h2>Komentāri</h2>
+                @foreach ($post->comments as $comment)
+                    <form method="POST" action="/comments/{{ $comment->id }}">
+                        @csrf
+                        @method("delete")
 
-            <p><strong>{{ $comment->comment }}</strong></p>
-            <p>{{ $comment->author }}</p>
-            <p>{{ $comment->created_at }}</p>
+                        <p><strong>{{ $comment->comment }}</strong></p>
+                        <p>{{ $comment->author }}</p>
+                        <p>{{ $comment->created_at }}</p>
 
-            <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
-            <button class="delete">Dzēst</button>
-        </form>
-    @endforeach
-    
+                        <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
+                        <button class="delete">Dzēst</button>
+                    </form>
+                @endforeach
+            </div>
+        </div>
+    </div>
 </x-layout>
