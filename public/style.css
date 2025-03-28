@@ -1,24 +1,15 @@
-body {
-    background-color: #e89ff5;
-}
-
-.komentari {
-    font-weight: bold;
-}
-
 /* navbar */
 nav {
     text-align: center;
 }
 
 nav a {
-    color: #6f1f8f;
     text-decoration: none;
     font-weight: bold;
+    margin: 0 5px 0 5px;
 }
 
 nav a:hover {
-    color: #9627c2;
     text-decoration: underline;
 }
 
@@ -30,4 +21,35 @@ nav ul {
 
 nav li {
     display: inline;
+}
+
+ /* edit poga */
+.edit:link, .edit:visited {
+    background-color: #2f9600;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+  
+.edit:hover, .edit:active {
+    background-color: #297505;
+}
+
+/* delete poga */
+.delete {
+    background-color: #ad0202;
+    color: white;
+    padding: 7px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+}
+  
+.delete:hover {
+    background-color: #8d0606;
+    cursor:pointer;
 }

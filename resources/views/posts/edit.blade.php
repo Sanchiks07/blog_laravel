@@ -19,7 +19,7 @@
         <label>
             Kategorija:
             <select name="category_id">
-                <option value="0">Bez kategorijas</option>
+                <option value="">Bez kategorijas</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">
                     {{ $category->category_name }} 

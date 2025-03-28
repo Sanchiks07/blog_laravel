@@ -3,32 +3,24 @@
         {{ $post->content }}
     </x-slot:title>
     <h1>{{ $post->content }}</h1>
-    <p>{{ $post->category->category_name }}</p>
+    <p>{{ $post->category->category_name ?? "Nav kategorijas" }}</p>
 
-    <a class="edit" href="/posts/{{ $post->id }}/edit">Rediģēt</a><br>
+    <a class="edit" href="/posts/{{ $post->id }}/edit">Rediģēt</a>
 
     <form method="POST" action="/posts/{{ $post->id }}">
         @csrf
         @method("delete")
-        <button>Dzēst</button>
-    </form><br>
+        <button class="delete">Dzēst</button>
+    </form>
 
-    <p class="komentari">Komentāri</p>
-
+    <!-- izveido komentāru -->
+    <h3>Komentēt</h3>
     <form method="POST" action="/comments">
         @csrf
 
         <input name="post_id" value="{{ $post->id }}" type="hidden" />
 
         <label>
-            Autors:
-            <input name="author" />
-        </label>
-        @error("author")
-            <p>{{ $message }}</p>
-        @enderror<br>
-
-        <br><label>
             Komentārs:
             <input name="comment" />
         </label>
@@ -36,21 +28,31 @@
             <p>{{ $message }}</p>
         @enderror<br>
 
-        <br><br>
-        <button type="submit">Komentēt</button>
-    </form>
+        <br><label>
+            Autors:
+            <input name="author" />
+        </label>
+        @error("author")
+            <p>{{ $message }}</p>
+        @enderror<br>
 
+        <br>
+        <button type="submit" class="save">Saglabāt</button>
+    </form><br>
+
+    <!-- izvada komentārus -->
+    <h3>Komentāri</h3>
     @foreach ($post->comments as $comment)
         <form method="POST" action="/comments/{{ $comment->id }}">
             @csrf
             @method("delete")
 
-            <h2>{{ $comment->comment }}</h2>
-            <p>{{ $comment->created_at }}</p>
+            <p><strong>{{ $comment->comment }}</strong></p>
             <p>{{ $comment->author }}</p>
+            <p>{{ $comment->created_at }}</p>
 
-            <a href="/comments/{{ $comment->id }}/edit">Rediģēt</a>
-            <button>Dzēst</button>
+            <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
+            <button class="delete">Dzēst</button>
         </form>
     @endforeach
     

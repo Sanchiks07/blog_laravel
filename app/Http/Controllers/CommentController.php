@@ -31,13 +31,11 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment) {
         $validated = $request->validate([
             "author" => ["required", "max:50"],
-            "comment" => ["required", "max:500"],
-            "post_id" => ["required"]
+            "comment" => ["required", "max:500"]
         ]);
 
         $comment->author = $validated["author"];
         $comment->comment = $validated["comment"];
-        $comment->post_id = $validated["post_id"];
         $comment->save();
 
         return redirect("/posts");
