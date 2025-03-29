@@ -16,9 +16,9 @@
 
             @error("category_name")
                 <p>{{ $message }}</p>
-            @enderror
+            @enderror<br>
 
-            <br><button>Saglabāt</button>
+            <button class="save">Saglabāt</button>
         </form>
     </div>
 </x-layout>

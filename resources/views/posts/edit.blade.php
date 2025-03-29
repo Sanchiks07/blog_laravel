@@ -14,7 +14,7 @@
                     <textarea name="content">{{ $post->content }}</textarea>
                 </label>
             </div>
-
+            
             @error("content")
             <p>{{ $message }}</p>
             @enderror<br><br>
@@ -35,9 +35,9 @@
 
             @error("category_id")
                 <p>{{ $message }}</p>
-            @enderror
+            @enderror<br>
 
-            <br><button>Saglabāt</button>
+            <button class="save">Saglabāt</button>
         </form>
     </div>
 </x-layout>
