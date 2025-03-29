@@ -25,7 +25,7 @@ class PostController extends Controller
 
     public function store(Request $request) {
         $validated = $request->validate([
-            "content" => ["required", "max:50"],
+            "content" => ["required", "max:100"],
             "category_id" => []
         ]);
         Post::create([
@@ -43,7 +43,7 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post) {
         $validated = $request->validate([
-            "content" => ["required", "max:50"],
+            "content" => ["required", "max:100"],
             "category_id" => []
         ]);
 

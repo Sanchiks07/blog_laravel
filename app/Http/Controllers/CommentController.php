@@ -13,7 +13,7 @@ class CommentController extends Controller
     public function store(Request $request) {
         $validated = $request->validate([
             "author" => ["required", "max:50"],
-            "comment" => ["required", "max:500"],
+            "comment" => ["required", "max:100"],
             "post_id" => ["required"]
         ]);
         Comment::create([
@@ -31,7 +31,7 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment) {
         $validated = $request->validate([
             "author" => ["required", "max:50"],
-            "comment" => ["required", "max:500"]
+            "comment" => ["required", "max:100"]
         ]);
 
         $comment->author = $validated["author"];

@@ -50,24 +50,26 @@
                 </form><br>
             </div>
 
+            <!-- izvada komentārus -->
             <div class="comments-list">
-                <!-- izvada komentārus -->
                 <h2>Komentāri</h2>
-                @foreach ($post->comments as $comment)
-                    <form method="POST" action="/comments/{{ $comment->id }}">
-                        @csrf
-                        @method("delete")
+                <div class="comment-list-items">
+                    @foreach ($post->comments as $comment)
+                        <form method="POST" action="/comments/{{ $comment->id }}">
+                            @csrf
+                            @method("delete")
 
-                        <p><strong>{{ $comment->comment }}</strong></p>
-                        <p>{{ $comment->author }}</p>
-                        <p>{{ $comment->created_at->timezone('Europe/Riga')->format('Y-m-d H:i:s') }}</p>
+                            <p><strong>{{ $comment->comment }}</strong></p>
+                            <p>{{ $comment->author }}</p>
+                            <p>{{ $comment->created_at->timezone('Europe/Riga')->format('Y-m-d H:i:s') }}</p>
 
-                        <div class="actions">
-                            <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
-                            <button class="delete">Dzēst</button>
-                        </div>
-                    </form>
-                @endforeach
+                            <div class="actions">
+                                <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
+                                <button class="delete">Dzēst</button>
+                            </div>
+                        </form>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
