@@ -14,26 +14,30 @@
         <form method="POST" action="/posts">
             @csrf
 
-            <label>
-                Ieraksts<br>
-                <textarea name="content" placeholder="Ieraksti savas domas..."></textarea>
-            </label><br>
+            <div class="post-input-group">
+                <label>
+                    Ieraksts
+                    <textarea name="content" placeholder="Ieraksti savas domas..."></textarea>
+                </label><br>
+            </div>
 
             @error("content")
                 <p>{{ $message }}</p>
             @enderror<br>
 
-            <label>
-                Kategorija:
-                <select name="category_id">
-                    <option value="">Bez kategorijas</option>
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">
-                        {{ $category->category_name }} 
-                        </option>
-                    @endforeach
-                </select>
-            </label><br>
+            <div class="post-select">
+                <label>
+                    Kategorija
+                    <select name="category_id">
+                        <option value="">Bez kategorijas</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">
+                            {{ $category->category_name }} 
+                            </option>
+                        @endforeach
+                    </select>
+                </label><br>
+            </div>
 
             @error("category_id")
                 <p>{{ $message }}</p>

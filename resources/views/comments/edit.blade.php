@@ -3,23 +3,27 @@
         Rēdiģē komentāru
     </x-slot:title>
     <div class="center">
-        <h3>Rediģēt komentāru</h3>
+        <h1>Rediģēt komentāru</h1>
         <form method="POST" action="/comments/{{ $comment->id }}">
             @csrf
             @method("put")
 
-            <label>
-                Komentārs:
-                <input name="comment" value="{{ $comment->comment }}"/>
-            </label>
+            <div class="comment-input-group">
+                <label>
+                    Komentārs
+                    <input name="comment" value="{{ $comment->comment }}"/>
+                </label>
+            </div>
             @error("comment")
                 <p>{{ $message }}</p>
             @enderror<br>
 
-            <br><label>
-                Autors:
-                <input name="author" value="{{ $comment->author }}"/>
-            </label>
+            <div class="comment-input-group">
+                <br><label>
+                    Autors
+                    <input name="author" value="{{ $comment->author }}"/>
+                </label>
+            </div>
             @error("author")
                 <p>{{ $message }}</p>
             @enderror<br>

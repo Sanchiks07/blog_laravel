@@ -7,10 +7,12 @@
         <form method="POST" action="/categories">
             @csrf
 
-            <label>
-                Kategorija<br>
-                <input name="category_name" />
-            </label><br>
+            <div class="category-input-group">
+                <label>
+                    Kategorija<br>
+                    <input name="category_name" />
+                </label><br>
+            </div>
 
             @error("category_name")
                 <p>{{ $message }}</p>

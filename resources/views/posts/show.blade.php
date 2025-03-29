@@ -24,7 +24,7 @@
 
                     <input name="post_id" value="{{ $post->id }}" type="hidden" />
 
-                    <div class="input-group">
+                    <div class="comment-input-group">
                         <label for="comment">Komentārs</label>
                         <textarea name="comment" id="comment" placeholder="Ieraksti savu komentāru..."></textarea>
                     </div>
@@ -32,7 +32,7 @@
                         <p>{{ $message }}</p>
                     @enderror<br>
 
-                    <div class="input-group">
+                    <div class="comment-input-group">
                         <label for="author">Autors</label>
                         <input name="author" id="author" />
                     </div>
@@ -57,8 +57,10 @@
                         <p>{{ $comment->author }}</p>
                         <p>{{ $comment->created_at->timezone('Europe/Riga')->format('Y-m-d H:i:s') }}</p>
 
-                        <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
-                        <button class="delete">Dzēst</button>
+                        <div class="comment-actions">
+                            <a href="/comments/{{ $comment->id }}/edit" class="edit">Rediģēt</a>
+                            <button class="delete">Dzēst</button>
+                        </div>
                     </form>
                 @endforeach
             </div>

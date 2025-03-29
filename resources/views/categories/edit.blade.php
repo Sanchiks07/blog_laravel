@@ -8,16 +8,18 @@
             @csrf
             @method('PUT')
             
-            <label>
-                Kategorija:<br>
-                <input name="category_name" value="{{ $category->category_name }}" />
-            </label>
+            <div class="category-input-group">
+                <label>
+                    Kategorija
+                    <input name="category_name" value="{{ $category->category_name }}" />
+                </label>
+            </div>
 
             @error("category_name")
             <p>{{ $message }}</p>
             @enderror<br><br>
 
-            <br><button>Saglabāt</button>
+            <button>Saglabāt</button>
         </form>
     </div>
 </x-layout>
