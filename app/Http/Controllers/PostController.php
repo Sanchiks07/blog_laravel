@@ -58,4 +58,14 @@ class PostController extends Controller
         $post->delete();
         return redirect("/posts");
     }
+
+    public function search(Request $request) {
+        $search = $request->input('search');
+
+        $posts = Post::when($search, function ($query, $search) {
+            return $query->where('content', 'like', '%' . $search . '%');
+        })->get();
+
+        return view('posts.index', ['posts' => $posts, 'search' => $search]);
+    }
 }

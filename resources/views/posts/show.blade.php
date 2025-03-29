@@ -24,7 +24,7 @@
 
                     <input name="post_id" value="{{ $post->id }}" type="hidden" />
 
-                    <div class="comment-input-group">
+                    <div class="comment-input">
                         <label for="comment">
                             Komentārs
                             <textarea name="comment" placeholder="Ieraksti savu komentāru..."></textarea>
@@ -35,7 +35,7 @@
                         <p>{{ $message }}</p>
                     @enderror<br>
 
-                    <div class="comment-input-group">
+                    <div class="comment-input">
                         <label for="author">
                             Autors
                             <input name="author" />

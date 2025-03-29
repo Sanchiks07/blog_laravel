@@ -8,7 +8,7 @@
             @csrf
             @method('PUT')
             
-            <div class="post-input-group">
+            <div class="post-input">
                 <label>
                     Ieraksts
                     <textarea name="content">{{ $post->content }}</textarea>

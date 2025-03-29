@@ -7,7 +7,7 @@
         <form method="POST" action="/categories">
             @csrf
 
-            <div class="category-input-group">
+            <div class="category-input">
                 <label>
                     Kategorija<br>
                     <input name="category_name" />

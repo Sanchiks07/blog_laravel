@@ -8,7 +8,7 @@
             @csrf
             @method("put")
 
-            <div class="comment-input-group">
+            <div class="comment-input">
                 <label>
                     Komentārs
                     <input name="comment" value="{{ $comment->comment }}"/>
@@ -18,7 +18,7 @@
                 <p>{{ $message }}</p>
             @enderror<br>
 
-            <div class="comment-input-group">
+            <div class="comment-input">
                 <br><label>
                     Autors
                     <input name="author" value="{{ $comment->author }}"/>

@@ -44,7 +44,7 @@ ul {
 
 textarea {
     width: 300px;
-    height: 90px;
+    height: 100px;
     resize: none;
     font-family: 'Poppins', sans-serif;
 }
@@ -155,18 +155,19 @@ nav li {
     margin-top: 70px;
 }
 
-/* visas input grupas */
-.comment-input-group,
-.category-input-group,
-.post-input-group {
+/* visi input */
+.comment-input,
+.category-input,
+.post-input {
     margin: auto;
     width: 100%;
     max-width: 300px;
 }
 
-.comment-input-group input, .comment-input-group textarea,
-.category-input-group input,
-.post-input-group textarea {
+.comment-input input, .comment-input textarea,
+.category-input input,
+.post-input textarea,
+.search-input input {
     width: 100%;
     padding: 10px;
     border: 2px solid var(--input-color);
@@ -174,34 +175,50 @@ nav li {
     outline: none;
     background: var(--input-background);
     box-sizing: border-box;
+    font-size: 14px;
 }
 
-.comment-input-group label,
-.category-input-group label,
-.post-input-group label, .post-select label {
+.comment-input label,
+.category-input label,
+.post-input label, .post-select label {
     transition: 0.3s ease-in-out;
     padding: 0 5px;
 }
 
-.comment-input-group input:focus ~ label, .comment-input-group textarea:focus ~ label, .comment-input-group textarea:not(:placeholder-shown) ~ label,
-.category-input-group input:focus ~ label,
-.post-input-group textarea:focus ~ label, .post-input-group textarea:not(:placeholder-shown) ~ label {
+.comment-input input:focus ~ label, .comment-input textarea:focus ~ label, .comment-input textarea:not(:placeholder-shown) ~ label,
+.category-input input:focus ~ label,
+.post-input textarea:focus ~ label, .post-input textarea:not(:placeholder-shown) ~ label {
     padding: 2px 5px;
     border-radius: 5px;
 }
 
-/* kategoriju input group */
-.category-input-group {
+/* kategoriju input */
+.category-input {
     max-width: 250px;
 }
 
-.category-input-group input {
+.category-input input {
     min-width: 250px;
 }
 
-/* post input group */
-.post-input-group textarea {
+/* post input */
+.post-input textarea {
     padding: 8px;
+}
+
+/* search input */
+.search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.search-input input {
+    padding: 5px;
+    flex-grow: 1;
 }
 
 /* post select */
@@ -211,15 +228,18 @@ nav li {
     border: 2px solid var(--input-color);
     border-radius: 5px;
     background: var(--input-background);
-    color: var(--input-color);
-    font-size: 16px;
+    font-size: 14px;
     outline: none;
     cursor: pointer;
     transition: border-color 0.3s ease;
 }
 
-/* delete & edit, save & komentēt pogas */
-.delete, .edit, .save {
+.post-select option {
+    font-size: 14px;
+}
+
+/* delete & edit, save & komentēt, search pogas */
+.delete, .edit, .save, .search {
     display: inline-block;
     text-decoration: none;
     position: relative;
@@ -231,11 +251,11 @@ nav li {
     transition: 0.3s;
 }
 
-.delete:hover, .edit:hover, .save:hover {
+.delete:hover, .edit:hover, .save:hover, .search:hover {
     transform: scale(1.1);
 }
 
-.delete::before, .edit::before, .save::before {
+.delete::before, .edit::before, .save::before, .search::before {
     content: "";
     position: absolute;
     top: 0;
@@ -246,7 +266,7 @@ nav li {
     transition: 0.4s;
 }
 
-.delete:hover::before, .edit:hover::before, .save:hover::before {
+.delete:hover::before, .edit:hover::before, .save:hover::before, .search:hover::before {
     left: 100%;
 }
 
@@ -284,6 +304,22 @@ nav li {
     background: var(--save-hover);
 }
 
+/* search poga */
+.search {
+    background-color: var(--save-background);
+    color: var(--save-color);
+    border: 2px solid var(--save-color);
+    padding: 4px 14px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search::before {
+    background: var(--save-hover);
+}
+
 /* edit & delete actions */
 .actions {
     display: flex;
@@ -292,7 +328,7 @@ nav li {
     gap: 10px;
 }
 
-/* Responsive Styles */
+/* responsive */
 @media screen and (max-width: 768px) {
     nav {
         font-size: 16px;
@@ -341,7 +377,7 @@ nav li {
         height: 80px;
     }
 
-    .comment-input-group input, .comment-input-group textarea {
+    .comment-input input, .comment-input textarea {
         font-size: 14px;
     }
 }

@@ -8,7 +8,7 @@
             @csrf
             @method('PUT')
             
-            <div class="category-input-group">
+            <div class="category-input">
                 <label>
                     Kategorija
                     <input name="category_name" value="{{ $category->category_name }}" />

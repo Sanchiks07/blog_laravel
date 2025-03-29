@@ -14,7 +14,7 @@
         <form method="POST" action="/posts">
             @csrf
 
-            <div class="post-input-group">
+            <div class="post-input">
                 <label>
                     Ieraksts
                     <textarea name="content" placeholder="Ieraksti savas domas..."></textarea>

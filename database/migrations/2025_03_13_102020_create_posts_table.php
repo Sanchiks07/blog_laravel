@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string("content", length: 500);
+            $table->string("content", length: 255);
             $table->foreignId("category_id")->nullable()->constrained()->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
